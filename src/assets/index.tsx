@@ -1,5 +1,4 @@
-import Logo from './Logo.svg';
-import arrow from './arrowblack.svg';
+// src/assets/index.tsx
+import Logo from './mad2.jpg';
 
 export {Logo};
-export {arrow};
