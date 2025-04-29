@@ -1,8 +1,29 @@
 import React from 'react';
-import PaymentR from './src/PaymentR';
+import SplashScreen from './src/SplashScreen';
+import CreateAcc from './src/CreateAcc';
+
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
-  return <PaymentR />;
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="SplashScreen"
+          component={SplashScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name="CreateAcc"
+          component={CreateAcc}
+          options={{headerShown: false}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 };
 
 export default App;

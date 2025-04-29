@@ -13,7 +13,7 @@ const CreateAcc2 = () => {
       <Text style={styles.subtitle}>
         Fill your information below and choose if you are Student or Tutor.
       </Text>
-      <View style={styles.formContainer}>
+      <View style={styles.formContainear}>
         <Gap height={16} />
         <TextInput label="Name" placeholder="Type your name" />
         <Gap height={16} />
