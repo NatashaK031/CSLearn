@@ -1,8 +1,8 @@
 import React from 'react';
-import Rules from './src/Rules';
+import PaymentR from './src/PaymentR';
 
 const App = () => {
-  return <Rules />;
+  return <PaymentR />;
 };
 
 export default App;

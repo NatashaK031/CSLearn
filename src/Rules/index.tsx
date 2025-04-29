@@ -20,7 +20,7 @@ const Rules = () => {
         <Gap height={5} />
         <Text style={styles.infoText2}>
           If you later decide to switch subjects, simply delete your account and
-          register again with your new subject choices. Don’t worry—there’s no
+          register again with your new subject choices. Don’t worry there’s no
           disadvantage to doing this. The only thing that will be lost is your
           chat history.
         </Text>
