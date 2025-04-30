@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import React from 'react';
 
-const CreateAcc = () => {
+const CreateAcc = ({navigation}) => {
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={[styles.button, styles.signInButton]}>
+      <TouchableOpacity style={[styles.button, styles.signInButton]} onPress={() => navigation.navigate('SignIn')}>
         <Text style={[styles.buttonText, styles.signInText]}>Sign in</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={[styles.button, styles.signUpButton]}>
+      <TouchableOpacity style={[styles.button, styles.signUpButton]} onPress={() => navigation.navigate('CreateAcc2')}>
         <Text style={[styles.buttonText, styles.signUpText]}>Sign Up</Text>
       </TouchableOpacity>
     </View>

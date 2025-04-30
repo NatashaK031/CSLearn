@@ -1,9 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Button from '../../components/atomsP/buttonHomeStu';
 import Gap from '../../components/atomsP/Gap';
 
 const HomePage = () => {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <ScrollView style={styles.pageContainer}>
@@ -13,6 +16,7 @@ const HomePage = () => {
             source={require('../assets/bell.png')}
             style={styles.bellIcon}
             resizeMode="contain"
+            accessibilityLabel="Notifications"
           />
         </View>
 
@@ -20,15 +24,16 @@ const HomePage = () => {
           source={require('../assets/unklab.png')}
           style={styles.image}
           resizeMode="cover"
+          accessibilityLabel="Campus banner"
         />
 
         <View style={styles.buttonRow}>
-          <Button label="Course" color="#0D0E52" textColor="#FFFFFF" />
+          <Button label="Course" color="#0D0E52" textColor="#FFFFFF" onPress={() => navigation.navigate('Course')} />
           <Gap width={16} />
-          <Button label="Subject" color="#0D0E52" textColor="#FFFFFF" />
+          <Button label="Subject" color="#0D0E52" textColor="#FFFFFF" onPress={() => navigation.navigate('Course')} />
         </View>
 
-        <Text style={styles.thankYouText}>Thank you for choosing this tutors !</Text>
+        <Text style={styles.thankYouText}>Thank you for choosing this tutors!</Text>
 
         <View style={styles.tutorBox}>
           <Text style={styles.tutorName}>Hizkia Siregar</Text>
@@ -42,20 +47,20 @@ const HomePage = () => {
       </ScrollView>
 
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/home.png')} style={styles.icon} />
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Home')}>
+          <Image source={require('../assets/home.png')} style={styles.icon} accessibilityLabel="Home" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/Search.png')} style={styles.icon} />
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Search')}>
+          <Image source={require('../assets/Search.png')} style={styles.icon} accessibilityLabel="Search" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/chat.png')} style={styles.icon} />
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Chat1')}>
+          <Image source={require('../assets/chat.png')} style={styles.icon} accessibilityLabel="Chat" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/Wallet.png')} style={styles.icon} />
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('PaymentR')}>
+          <Image source={require('../assets/Wallet.png')} style={styles.icon} accessibilityLabel="Wallet" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/person.png')} style={styles.icon} />
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('StuProfil')}>
+          <Image source={require('../assets/person.png')} style={styles.icon} accessibilityLabel="Profile" />
         </TouchableOpacity>
       </View>
     </View>
@@ -111,7 +116,7 @@ const styles = StyleSheet.create({
   tutorBox: {
     backgroundColor: '#D3D3D3',
     padding: 16,
-    borderRadius: 1,
+    borderRadius: 10,
     marginBottom: 12,
   },
   tutorName: {

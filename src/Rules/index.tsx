@@ -35,7 +35,7 @@ const Rules = () => {
         If you already understand, please press continue!
       </Text>
       <Gap height={16} />
-      <Button label="I understand" color="#161868" textColor="#FFFFFF" />
+      <Button label="I understand" color="#161868" textColor="#FFFFFF" onPress={() => navigation.navigate('SignIn')} />
     </View>
   );
 };

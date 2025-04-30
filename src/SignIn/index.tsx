@@ -1,10 +1,10 @@
-import { StyleSheet, Text, View } from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import TextInput from '../../components/moleculesP/TextInputSignIn';
 import Button from '../../components/atomsP/buttonSignIn';
 import Gap from '../../components/atomsP/Gap';
 
-const SignIn = () => {
+const SignIn = ({navigation}) => {
   return (
     <View style={styles.pageContainer}>
       <Text style={styles.title}>Sign in</Text>
@@ -15,7 +15,12 @@ const SignIn = () => {
         <Gap height={16} />
         <TextInput label="Password" placeholder="Password" secureTextEntry />
         <Gap height={24} />
-        <Button label="Sign in" color="#002D62" textColor="#FFFFFF" />
+        <Button
+          label="Sign in"
+          color="#002D62"
+          textColor="#FFFFFF"
+          onPress={() => navigation.navigate('HomeStu')}
+        />
       </View>
 
       <Text style={styles.forgotPassword}>forgot password?</Text>

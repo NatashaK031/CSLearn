@@ -1,15 +1,11 @@
-import { StyleSheet, Text, View, Image } from 'react-native';
-import React, { useEffect } from 'react';
-import { Logo } from '../assets'; 
+import {StyleSheet, Text, View, Image} from 'react-native';
+import React, {useEffect} from 'react';
+import {Logo} from '../assets'; 
 
-const SplashScreen = ({ navigation }) => {
+const SplashScreen = ({navigation}) => {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      navigation.replace('SignIn');
-    }, 3000);
-
-    return () => clearTimeout(timer);
-  }, [navigation]);
+    setTimeout(() => navigation.replace('CreateAcc'), 3000);
+  }, []);
 
   return (
     <View style={styles.container}>
@@ -33,8 +29,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontSize: 32,
-    fontFamily: 'Poppins-Medium', // Make sure this font is loaded via `react-native-config` or `expo-font` if needed
-    color: '#000',
+    fontSize: 24,
+    fontFamily: 'Poppins-Medium', 
   },
 });
