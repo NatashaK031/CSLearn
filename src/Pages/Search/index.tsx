@@ -21,7 +21,7 @@ const FindTutor = () => {
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButton}>
         <Image
-          source={require('../assets/backarrow.png')}
+          source={require('../../assets/backarrow.png')}
           style={styles.icon}
         />
       </TouchableOpacity>
@@ -40,7 +40,7 @@ const FindTutor = () => {
         renderItem={({item}) => (
           <View style={styles.tutorItem}>
             <Image
-              source={require('../assets/propic.png')}
+              source={require('../../assets/propic.png')}
               style={styles.tutorIcon}
             />
             <Text style={styles.tutorName}>{item.name}</Text>
@@ -50,19 +50,19 @@ const FindTutor = () => {
 
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/home.png')} style={styles.icon} />
+          <Image source={require('../../assets/home.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/Search.png')} style={styles.icon} />
+          <Image source={require('../../assets/Search.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/chat.png')} style={styles.icon} />
+          <Image source={require('../../assets/chat.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/Wallet.png')} style={styles.icon} />
+          <Image source={require('../../assets/Wallet.png')} style={styles.icon} />
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/person.png')} style={styles.icon} />
+          <Image source={require('../../assets/person.png')} style={styles.icon} />
         </TouchableOpacity>
       </View>
     </View>

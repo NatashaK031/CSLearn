@@ -1,7 +1,67 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity, Image } from 'react-native';
+import React, { useState } from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  Image,
+  Alert,
+  PermissionsAndroid,
+  Platform,
+} from 'react-native';
+import { launchImageLibrary } from 'react-native-image-picker';
 
 const StudentProfile = ({ navigation }) => {
+  const [image, setImage] = useState(null);
+
+  const requestStoragePermission = async () => {
+    if (Platform.OS === 'android') {
+      try {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
+          {
+            title: 'Storage Permission Required',
+            message: 'App needs access to your photo library to set profile picture.',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
+        );
+        return granted === PermissionsAndroid.RESULTS.GRANTED;
+      } catch (err) {
+        console.warn(err);
+        return false;
+      }
+    }
+    return true;
+  };
+
+  const pickImage = async () => {
+    const hasPermission = await requestStoragePermission();
+    if (!hasPermission) {
+      Alert.alert('Permission Denied', 'Cannot access media library');
+      return;
+    }
+
+    const options = {
+      mediaType: 'photo',
+      maxWidth: 300,
+      maxHeight: 300,
+      quality: 1,
+    };
+
+    launchImageLibrary(options, (response) => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if (response.errorCode) {
+        console.log('ImagePicker Error: ', response.errorMessage);
+      } else {
+        const source = response.assets[0].uri;
+        setImage(source);
+      }
+    });
+  };
+
   return (
     <View style={styles.pageContainer}>
       <View style={styles.header}>
@@ -9,35 +69,42 @@ const StudentProfile = ({ navigation }) => {
       </View>
 
       <View style={styles.profileCard}>
-        <View style={styles.profileIcon}>
-          <Text style={styles.iconText}>👤</Text>
-        </View>
+        <TouchableOpacity onPress={pickImage}>
+          {image ? (
+            <Image source={{ uri: image }} style={styles.profileImage} />
+          ) : (
+            <View style={styles.profileIcon}>
+              <Text style={styles.iconText}>👤</Text>
+            </View>
+          )}
+        </TouchableOpacity>
         <Text style={styles.name}>Gloria Kirey Dumaha</Text>
 
         <View style={styles.detailsContainer}>
           <View style={styles.detailRow}>
-            <Image source={require('../assets/email.png')} style={styles.detailIcon} />
+            <Image source={require('../../assets/email.png')} style={styles.detailIcon} />
             <Text style={styles.detailText}>S22210117@student.unklab.ac.id</Text>
           </View>
           <View style={styles.detailRow}>
-            <Image source={require('../assets/time.png')} style={styles.detailIcon} />
-            <Text style={styles.detailText}>S22210117@student.unklab.ac.id</Text>
+            <Image source={require('../../assets/time.png')} style={styles.detailIcon} />
+            <Text style={styles.detailText}>Monday - Friday</Text>
           </View>
           <View style={styles.detailRow}>
-            <Image source={require('../assets/location.png')} style={styles.detailIcon} />
-            <Text style={styles.detailText}>S22210117@student.unklab.ac.id</Text>
+            <Image source={require('../../assets/location.png')} style={styles.detailIcon} />
+            <Text style={styles.detailText}>Manado, Indonesia</Text>
           </View>
           <View style={styles.detailRow}>
-            <Image source={require('../assets/people.png')} style={styles.detailIcon} />
-            <Text style={styles.detailText}>S22210117@student.unklab.ac.id</Text>
+            <Image source={require('../../assets/people.png')} style={styles.detailIcon} />
+            <Text style={styles.detailText}>Student Council</Text>
           </View>
         </View>
       </View>
 
       <View style={styles.actionButtons}>
-        <TouchableOpacity style={styles.deleteButton}
-         onPress={() => navigation.navigate('SplashScreen')}
-         >
+        <TouchableOpacity
+          style={styles.deleteButton}
+          onPress={() => navigation.navigate('SplashScreen')}
+        >
           <Text style={styles.buttonText}>delete acc</Text>
         </TouchableOpacity>
         <TouchableOpacity
@@ -49,20 +116,20 @@ const StudentProfile = ({ navigation }) => {
       </View>
 
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/home.png')} style={styles.navIcon} onPress={() => navigation.navigate('HomeStu')} />
+        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('HomeStu')}>
+          <Image source={require('../../assets/home.png')} style={styles.navIcon} />
           <Text style={styles.navText}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/services.png')} style={styles.navIcon} />
+          <Image source={require('../../assets/services.png')} style={styles.navIcon} />
           <Text style={styles.navText}>Services</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/setting.png')} style={styles.navIcon} />
+          <Image source={require('../../assets/setting.png')} style={styles.navIcon} />
           <Text style={styles.navText}>Setting</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem}>
-          <Image source={require('../assets/person.png')} style={styles.navIcon} />
+          <Image source={require('../../assets/person.png')} style={styles.navIcon} />
           <Text style={styles.navText}>Profile</Text>
         </TouchableOpacity>
       </View>
@@ -83,12 +150,6 @@ const styles = StyleSheet.create({
     padding: 16,
     backgroundColor: '#EBEBEB',
   },
-  backButton: {
-    marginRight: 10,
-  },
-  backButtonText: {
-    fontSize: 24,
-  },
   headerTitle: {
     fontSize: 18,
     fontWeight: '600',
@@ -107,6 +168,12 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFF',
     alignItems: 'center',
     justifyContent: 'center',
+    marginBottom: 10,
+  },
+  profileImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
     marginBottom: 10,
   },
   iconText: {

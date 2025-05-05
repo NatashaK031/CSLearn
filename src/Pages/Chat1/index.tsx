@@ -26,7 +26,7 @@ import {
           renderItem={({ item }) => (
             <View style={styles.chatItem}>
               <Image
-                source={require('../assets/propic.png')}
+                source={require('../../assets/propic.png')}
                 style={styles.profileIcon}
               />
               <View>
@@ -39,19 +39,19 @@ import {
   
         <View style={styles.navBar}>
           <TouchableOpacity style={styles.navItem}>
-            <Image source={require('../assets/home.png')} style={styles.icon} onPress={() => navigation.navigate('HomeStu')} />
+            <Image source={require('../../assets/home.png')} style={styles.icon} onPress={() => navigation.navigate('HomeStu')} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.navItem}>
-            <Image source={require('../assets/Search.png')} style={styles.icon} onPress={() => navigation.navigate('Search')} />
+            <Image source={require('../../assets/Search.png')} style={styles.icon} onPress={() => navigation.navigate('Search')} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.navItem}>
-            <Image source={require('../assets/chat.png')} style={styles.icon} onPress={() => navigation.navigate('Chat1')} />
+            <Image source={require('../../assets/chat.png')} style={styles.icon} onPress={() => navigation.navigate('Chat1')} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.navItem}>
-            <Image source={require('../assets/Wallet.png')} style={styles.icon} onPress={() => navigation.navigate('PaymentR')} />
+            <Image source={require('../../assets/Wallet.png')} style={styles.icon} onPress={() => navigation.navigate('PaymentR')} />
           </TouchableOpacity>
           <TouchableOpacity style={styles.navItem}>
-            <Image source={require('../assets/person.png')} style={styles.icon} onPress={() => navigation.navigate('StuProfil')} />
+            <Image source={require('../../assets/person.png')} style={styles.icon} onPress={() => navigation.navigate('StuProfil')} />
           </TouchableOpacity>
         </View>
       </View>

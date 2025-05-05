@@ -7,7 +7,7 @@ const PaymentRules = () => {
       <View style={styles.header}>
         <TouchableOpacity style={styles.backButton}>
           <Image
-            source={require('../assets/backarrow.png')}
+            source={require('../../assets/backarrow.png')}
             style={styles.backIcon}
           />
         </TouchableOpacity>
@@ -17,7 +17,7 @@ const PaymentRules = () => {
       <View style={styles.rulesContainer}>
         <View style={styles.ruleItem}>
           <Image
-            source={require('../assets/MoneyS.png')}
+            source={require('../../assets/MoneyS.png')}
             style={styles.ruleIcon}
           />
           <View style={styles.ruleTextContainer}>
@@ -31,7 +31,7 @@ const PaymentRules = () => {
 
         <View style={styles.ruleItem}>
           <Image
-            source={require('../assets/MoneyS.png')}
+            source={require('../../assets/MoneyS.png')}
             style={styles.ruleIcon}
           />
           <View style={styles.ruleTextContainer}>
@@ -45,7 +45,7 @@ const PaymentRules = () => {
 
         <View style={styles.ruleItem}>
           <Image
-            source={require('../assets/MoneyS.png')}
+            source={require('../../assets/MoneyS.png')}
             style={styles.ruleIcon}
           />
           <View style={styles.ruleTextContainer}>
@@ -58,7 +58,7 @@ const PaymentRules = () => {
 
         <View style={styles.ruleItem}>
           <Image
-            source={require('../assets/MoneyS.png')}
+            source={require('../../assets/MoneyS.png')}
             style={styles.ruleIcon}
           />
           <View style={styles.ruleTextContainer}>

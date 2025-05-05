@@ -32,14 +32,14 @@ import {
             <View style={styles.scheduleCard}>
               <View style={styles.iconRow}>
                 <Image
-                  source={require('../assets/calender.png')}
+                  source={require('../../assets/calender.png')}
                   style={styles.icon}
                 />
                 <Text style={styles.dateText}>{item.date}</Text>
               </View>
               <View style={styles.iconRow}>
                 <Image
-                  source={require('../assets/clock.png')}
+                  source={require('../../assets/clock.png')}
                   style={styles.icon}
                 />
                 <Text style={styles.timeText}>{item.time}</Text>

@@ -23,7 +23,7 @@ import {
         {/* Header */}
         <View style={styles.header}>
           <Image
-            source={require('../assets/propic.png')}
+            source={require('../../assets/propic.png')}
             style={styles.profileImage}
           />
           <Text style={styles.profileName}>Avrilia Kawonal</Text>

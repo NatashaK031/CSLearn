@@ -1,13 +1,13 @@
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
-import Button from '../../components/atomsP/buttonRules';
-import Gap from '../../components/atomsP/Gap';
+import Button from '../../../components/atomsP/buttonRules';
+import Gap from '../../../components/atomsP/Gap';
 
 const Rules = () => {
   return (
     <View style={styles.pageContainer}>
       <Image
-        source={require('../assets/Tutors.png')}
+        source={require('../../assets/Tutors.png')}
         style={styles.headerImage}
       />
 
@@ -35,7 +35,12 @@ const Rules = () => {
         If you already understand, please press continue!
       </Text>
       <Gap height={16} />
-      <Button label="I understand" color="#161868" textColor="#FFFFFF" onPress={() => navigation.navigate('SignIn')} />
+      <Button
+        label="I understand"
+        color="#161868"
+        textColor="#FFFFFF"
+        onPress={() => navigation.navigate('SignIn')}
+      />
     </View>
   );
 };

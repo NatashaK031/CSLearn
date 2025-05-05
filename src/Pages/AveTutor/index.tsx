@@ -27,7 +27,7 @@ import {
           renderItem={({ item }) => (
             <View style={styles.tutorItem}>
               <Image
-                source={require('../assets/propic.png')}
+                source={require('../../assets/propic.png')}
                 style={styles.tutorIcon}
               />
               <Text style={styles.tutorName}>{item.name}</Text>

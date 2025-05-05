@@ -3,14 +3,14 @@ import React from 'react';
 import AveTutor from '../AveTutor';
 
 const subjects = [
-  {title: 'Data Mining', icon: require('../assets/DM.png'), screen: 'DataMiningScreen'},
-  {title: 'Research Method', icon: require('../assets/RM.png'), screen: 'ResearchScreen'},
-  {title: 'Coding', icon: require('../assets/Code.png'), screen: 'CodingScreen'},
-  {title: 'Front-End', icon: require('../assets/FE.png'), screen: 'FrontendScreen'},
-  {title: 'Web Design', icon: require('../assets/WD.png'), screen: 'WebDesignScreen'},
-  {title: 'Back-End', icon: require('../assets/BE.png'), screen: 'BackendScreen'},
-  {title: 'ComGraf', icon: require('../assets/CG.png'), screen: 'ComGraf'},
-  {title: 'AI', icon: require('../assets/AI.png'), screen: 'AIScreen'},
+  {title: 'Data Mining', icon: require('../../assets/DM.png'), screen: 'DataMiningScreen'},
+  {title: 'Research Method', icon: require('../../assets/RM.png'), screen: 'ResearchScreen'},
+  {title: 'Coding', icon: require('../../assets/Code.png'), screen: 'CodingScreen'},
+  {title: 'Front-End', icon: require('../../assets/FE.png'), screen: 'FrontendScreen'},
+  {title: 'Web Design', icon: require('../../assets/WD.png'), screen: 'WebDesignScreen'},
+  {title: 'Back-End', icon: require('../../assets/BE.png'), screen: 'BackendScreen'},
+  {title: 'ComGraf', icon: require('../../assets/CG.png'), screen: 'ComGraf'},
+  {title: 'AI', icon: require('../../assets/AI.png'), screen: 'AIScreen'},
 ];
 
 const Subject = ({navigation}) => {

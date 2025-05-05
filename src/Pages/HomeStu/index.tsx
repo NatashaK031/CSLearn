@@ -1,8 +1,15 @@
 import React from 'react';
-import { StyleSheet, Text, View, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import Button from '../../components/atomsP/buttonHomeStu';
-import Gap from '../../components/atomsP/Gap';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
+import {useNavigation} from '@react-navigation/native';
+import Button from '../../../components/atomsP/buttonHomeStu';
+import Gap from '../../../components/atomsP/Gap';
 
 const HomePage = () => {
   const navigation = useNavigation();
@@ -13,7 +20,7 @@ const HomePage = () => {
         <View style={styles.header}>
           <Text style={styles.welcomeText}>Welcome to CSLearn!</Text>
           <Image
-            source={require('../assets/bell.png')}
+            source={require('../../assets/bell.png')}
             style={styles.bellIcon}
             resizeMode="contain"
             accessibilityLabel="Notifications"
@@ -21,19 +28,31 @@ const HomePage = () => {
         </View>
 
         <Image
-          source={require('../assets/unklab.png')}
+          source={require('../../assets/unklab.png')}
           style={styles.image}
           resizeMode="cover"
           accessibilityLabel="Campus banner"
         />
 
         <View style={styles.buttonRow}>
-          <Button label="Course" color="#0D0E52" textColor="#FFFFFF" onPress={() => navigation.navigate('Course')} />
+          <Button
+            label="Course"
+            color="#0D0E52"
+            textColor="#FFFFFF"
+            onPress={() => navigation.navigate('Course')}
+          />
           <Gap width={16} />
-          <Button label="Subject" color="#0D0E52" textColor="#FFFFFF" onPress={() => navigation.navigate('Course')} />
+          <Button
+            label="Subject"
+            color="#0D0E52"
+            textColor="#FFFFFF"
+            onPress={() => navigation.navigate('Course')}
+          />
         </View>
 
-        <Text style={styles.thankYouText}>Thank you for choosing this tutors!</Text>
+        <Text style={styles.thankYouText}>
+          Thank you for choosing this tutors!
+        </Text>
 
         <View style={styles.tutorBox}>
           <Text style={styles.tutorName}>Hizkia Siregar</Text>
@@ -47,20 +66,50 @@ const HomePage = () => {
       </ScrollView>
 
       <View style={styles.navBar}>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Home')}>
-          <Image source={require('../assets/home.png')} style={styles.icon} accessibilityLabel="Home" />
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigation.navigate('Home')}>
+          <Image
+            source={require('../../assets/home.png')}
+            style={styles.icon}
+            accessibilityLabel="Home"
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Search')}>
-          <Image source={require('../assets/Search.png')} style={styles.icon} accessibilityLabel="Search" />
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigation.navigate('Search')}>
+          <Image
+            source={require('../../assets/Search.png')}
+            style={styles.icon}
+            accessibilityLabel="Search"
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Chat1')}>
-          <Image source={require('../assets/chat.png')} style={styles.icon} accessibilityLabel="Chat" />
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigation.navigate('Chat1')}>
+          <Image
+            source={require('../../assets/chat.png')}
+            style={styles.icon}
+            accessibilityLabel="Chat"
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('PaymentR')}>
-          <Image source={require('../assets/Wallet.png')} style={styles.icon} accessibilityLabel="Wallet" />
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigation.navigate('PaymentR')}>
+          <Image
+            source={require('../../assets/Wallet.png')}
+            style={styles.icon}
+            accessibilityLabel="Wallet"
+          />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('StuProfil')}>
-          <Image source={require('../assets/person.png')} style={styles.icon} accessibilityLabel="Profile" />
+        <TouchableOpacity
+          style={styles.navItem}
+          onPress={() => navigation.navigate('StuProfil')}>
+          <Image
+            source={require('../../assets/person.png')}
+            style={styles.icon}
+            accessibilityLabel="Profile"
+          />
         </TouchableOpacity>
       </View>
     </View>

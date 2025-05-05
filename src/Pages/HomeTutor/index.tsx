@@ -10,12 +10,12 @@ const HomePage = ({ navigation }) => {
           <Text style={styles.username}>Hizkia!</Text>
         </View>
 
-        <Image source={require('../assets/unklab.png')} style={styles.bannerImage} resizeMode="cover" />
+        <Image source={require('../../assets/unklab.png')} style={styles.bannerImage} resizeMode="cover" />
 
         <View style={styles.card}>
           <Text style={styles.cardTitle}>Upcoming Sessions</Text>
           <View style={styles.sessionRow}>
-            <Image source={require('../assets/propic.png')} style={styles.sessionIcon} />
+            <Image source={require('../../assets/propic.png')} style={styles.sessionIcon} />
             <View style={styles.sessionDetails}>
               <Text style={styles.sessionName}>Amelia Sugiharto</Text>
               <View style={styles.sessionInfoRow}>
@@ -32,23 +32,23 @@ const HomePage = ({ navigation }) => {
 
       <View style={styles.navBar}>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Home')}>
-          <Image source={require('../assets/home.png')} style={styles.icon} />
+          <Image source={require('../../assets/home.png')} style={styles.icon} />
           <Text style={styles.navLabel}>Home</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Search')}>
-          <Image source={require('../assets/Search.png')} style={styles.icon} />
+          <Image source={require('../../assets/Search.png')} style={styles.icon} />
           <Text style={styles.navLabel}>Search</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Chat1')}>
-          <Image source={require('../assets/chat.png')} style={styles.icon} />
+          <Image source={require('../../assets/chat.png')} style={styles.icon} />
           <Text style={styles.navLabel}>Chat</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('PaymentR')}>
-          <Image source={require('../assets/Wallet.png')} style={styles.icon} />
+          <Image source={require('../../assets/Wallet.png')} style={styles.icon} />
           <Text style={styles.navLabel}>Payment</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.navItem} onPress={() => navigation.navigate('Profile')}>
-          <Image source={require('../assets/person.png')} style={styles.icon} />
+          <Image source={require('../../assets/person.png')} style={styles.icon} />
           <Text style={styles.navLabel}>Profile</Text>
         </TouchableOpacity>
       </View>
