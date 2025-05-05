@@ -3,22 +3,22 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // Screens
-import SplashScreen from './src/SplashScreen';
-import CreateAcc from './src/CreateAcc';
-import SignIn from './src/SignIn';
-import HomePage from './src/HomeStu';
-import FindTutor from './src/Search';
-import StudentProfile from './src/StuProfil';
-import Rules from './src/Rules';
-import PaymentRules from './src/PaymentR';
-import Notification from './src/Notifications';
-import HomeTutor from './src/HomeTutor';
-import CreateAcc2 from './src/CreateAcc2';
-import Course from './src/Course';
-import Chat1 from './src/Chat1';
-import Chat2 from './src/Chat2';
-import Book from './src/Book';
-import AveTutor from './src/AveTutor';
+import SplashScreen from './src/Pages/SplashScreen';
+import CreateAcc from './src/Pages/CreateAcc';
+import SignIn from './src/Pages/SignIn';
+import HomePage from './src/Pages/HomeStu';
+import FindTutor from './src/Pages/Search';
+import StudentProfile from './src/Pages/StuProfil';
+import Rules from './src/Pages/Rules';
+import PaymentRules from './src/Pages/PaymentR';
+import Notification from './src/Pages/Notifications';
+import HomeTutor from './src/Pages/HomeTutor';
+import SignUp from './src/Pages/SignUp';
+import Course from './src/Pages/Course';
+import Chat1 from './src/Pages/Chat1';
+import Chat2 from './src/Pages/Chat2';
+import Book from './src/Pages/Book';
+import AveTutor from './src/Pages/AveTutor';
 
 const Stack = createNativeStackNavigator();
 
@@ -42,7 +42,7 @@ const App = () => {
         <Stack.Screen name="Rules" component={Rules} />
         <Stack.Screen name="PaymentR" component={PaymentRules} />
         <Stack.Screen name="HomeTutor" component={HomeTutor} />
-        <Stack.Screen name="CreateAcc2" component={CreateAcc2} />
+        <Stack.Screen name="CreateAcc2" component={SignUp} />
         <Stack.Screen name="SignIn" component={SignIn} />
         <Stack.Screen name="Course" component={Course} />
         <Stack.Screen name="ChatScreen" component={Chat2} />

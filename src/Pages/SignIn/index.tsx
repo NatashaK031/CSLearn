@@ -1,25 +1,57 @@
+import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import TextInput from '../../components/moleculesP/TextInputSignIn';
-import Button from '../../components/atomsP/buttonSignIn';
-import Gap from '../../components/atomsP/Gap';
+import TextInput from '../../../components/moleculesP/TextInput';
+import Button from '../../../components/atomsP/buttonSignIn';
+import Gap from '../../../components/atomsP/Gap';
+import {signInWithEmailAndPassword} from 'firebase/auth';
+import {Auth} from '../../config/firebase';
+import {showMessage} from 'react-native-flash-message';
 
 const SignIn = ({navigation}) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onSubmit = () => {
+    signInWithEmailAndPassword(Auth, email, password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        navigation.navigate('HomeStu', {uid: user.uid});
+      })
+      .catch(error => {
+        console.log(error);
+        showMessage?.({
+          message: error.message,
+          type: 'danger',
+        });
+      });
+  };
+
   return (
     <View style={styles.pageContainer}>
       <Text style={styles.title}>Sign in</Text>
       <Text style={styles.subtitle}>Hi! Welcome back, you’ve been missed</Text>
 
       <View style={styles.formContainer}>
-        <TextInput label="Email Address" placeholder="Email Address" />
+        <TextInput
+          label="Email Address"
+          placeholder="Email Address"
+          onChangeText={setEmail}
+          value={email}
+        />
         <Gap height={16} />
-        <TextInput label="Password" placeholder="Password" secureTextEntry />
+        <TextInput
+          label="Password"
+          placeholder="Password"
+          secureTextEntry
+          onChangeText={setPassword}
+          value={password}
+        />
         <Gap height={24} />
         <Button
           label="Sign in"
           color="#002D62"
           textColor="#FFFFFF"
-          onPress={() => navigation.navigate('HomeStu')}
+          onPress={onSubmit}
         />
       </View>
 

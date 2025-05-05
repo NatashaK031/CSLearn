@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, Image} from 'react-native';
 import React, {useEffect} from 'react';
-import {Logo} from '../assets'; 
+import {Logo} from '../../assets';
 
 const SplashScreen = ({navigation}) => {
   useEffect(() => {
@@ -30,6 +30,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 24,
-    fontFamily: 'Poppins-Medium', 
+    fontFamily: 'Poppins-Medium',
   },
 });

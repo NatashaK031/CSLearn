@@ -1,16 +1,16 @@
 import React, {useState} from 'react';
 import {StyleSheet, Text, View} from 'react-native';
-import Header from '../../components/moleculesP/Header';
-import TextInput from '../../components/moleculesP/TextInput';
-import Button from '../../components/atomsP/button';
-import Button2 from '../../components/atomsP/button2';
-import Gap from '../../components/atomsP/Gap';
+import Header from '../../../components/moleculesP/Header';
+import TextInput from '../../../components/moleculesP/TextInput';
+import Button from '../../../components/atomsP/button';
+import Button2 from '../../../components/atomsP/button2';
+import Gap from '../../../components/atomsP/Gap';
 import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
 import {getDatabase, ref, set} from 'firebase/database';
 import {showMessage} from 'react-native-flash-message';
-import {Auth, fireDB} from '../config/firebase';
+import {Auth, fireDB} from '../../config/firebase';
 
-const CreateAcc2 = ({navigation}) => {
+const SignUp = ({navigation}) => {
   const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -100,7 +100,7 @@ const CreateAcc2 = ({navigation}) => {
   );
 };
 
-export default CreateAcc2;
+export default SignUp;
 
 const styles = StyleSheet.create({
   pageContainer: {
