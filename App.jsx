@@ -1,6 +1,6 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 // Screens
 import SplashScreen from './src/SplashScreen';
@@ -10,7 +10,7 @@ import HomePage from './src/HomeStu';
 import FindTutor from './src/Search';
 import StudentProfile from './src/StuProfil';
 import Rules from './src/Rules';
-import PaymentRules from './src/PaymentR'; // Make sure this file exists
+import PaymentRules from './src/PaymentR';
 import Notification from './src/Notifications';
 import HomeTutor from './src/HomeTutor';
 import CreateAcc2 from './src/CreateAcc2';
@@ -29,12 +29,12 @@ const App = () => {
         <Stack.Screen
           name="SplashScreen"
           component={SplashScreen}
-          options={{ headerShown: false }}
+          options={{headerShown: false}}
         />
         <Stack.Screen
           name="CreateAcc"
           component={CreateAcc}
-          options={{ headerShown: false }}
+          options={{headerShown: false}}
         />
         <Stack.Screen name="HomeStu" component={HomePage} />
         <Stack.Screen name="Search" component={FindTutor} />

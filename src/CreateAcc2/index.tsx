@@ -1,12 +1,42 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
+import {StyleSheet, Text, View} from 'react-native';
 import Header from '../../components/moleculesP/Header';
 import TextInput from '../../components/moleculesP/TextInput';
 import Button from '../../components/atomsP/button';
 import Button2 from '../../components/atomsP/button2';
 import Gap from '../../components/atomsP/Gap';
+import {getAuth, createUserWithEmailAndPassword} from 'firebase/auth';
+import {getDatabase, ref, set} from 'firebase/database';
+import {showMessage} from 'react-native-flash-message';
+import {Auth, fireDB} from '../config/firebase';
 
-const CreateAcc2 = ({ navigation }) => {
+const CreateAcc2 = ({navigation}) => {
+  const [fullName, setFullName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const onSubmit = () => {
+    createUserWithEmailAndPassword(Auth, email, password)
+      .then(userCredential => {
+        const user = userCredential.user;
+        set(ref(fireDB, 'users/' + user.uid), {
+          fullName: fullName,
+          email: email,
+        });
+        showMessage({
+          message: 'Registration success',
+          type: 'success',
+        });
+        navigation.navigate('SignIn');
+      })
+      .catch(error => {
+        showMessage({
+          message: error.message,
+          type: 'danger',
+        });
+      });
+  };
+
   return (
     <View style={styles.pageContainer}>
       <Header title="Create Account" />
@@ -17,17 +47,44 @@ const CreateAcc2 = ({ navigation }) => {
       <View style={styles.formWrapper}>
         <View style={styles.formContainer}>
           <Gap height={16} />
-          <TextInput label="Name" placeholder="Type your name" />
+          <TextInput
+            label="Name"
+            placeholder="Type your name"
+            value={fullName}
+            onChangeText={setFullName}
+          />
           <Gap height={16} />
-          <TextInput label="Email Address" placeholder="Type your email address" />
+          <TextInput
+            label="Email Address"
+            placeholder="Type your email address"
+            value={email}
+            onChangeText={setEmail}
+          />
           <Gap height={16} />
-          <TextInput label="Password" placeholder="Type your password" />
+          <TextInput
+            label="Password"
+            placeholder="Type your password"
+            secureTextEntry
+            value={password}
+            onChangeText={setPassword}
+          />
           <Gap height={24} />
 
           <View style={styles.roleSelection}>
-            <Button2 label="Student" color="#FFFFFF" textColor="#000000" borderColor="#A020F0" />
+            <Button2
+              label="Student"
+              color="#FFFFFF"
+              textColor="#000000"
+              borderColor="#A020F0"
+            />
             <Gap width={8} />
-            <Button2 label="Tutor" color="#FFFFFF" textColor="#000000" borderColor="#1E90FF" onPress={() => navigation.navigate('HomeTutor')} />
+            <Button2
+              label="Tutor"
+              color="#FFFFFF"
+              textColor="#000000"
+              borderColor="#1E90FF"
+              onPress={() => navigation.navigate('HomeTutor')}
+            />
           </View>
 
           <Gap height={30} />
@@ -35,7 +92,7 @@ const CreateAcc2 = ({ navigation }) => {
             label="Sign up"
             color="#000080"
             textColor="#FFFFFF"
-            onPress={() => navigation.navigate('HomeStu')}
+            onPress={onSubmit}
           />
         </View>
       </View>
